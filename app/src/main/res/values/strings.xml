@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RestaurantTeams RF</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="respuesta_del_servidor">"Respuesta del servidor: "</string>
+    <string name="error">"Error: "</string>
+    <string name="no_hay_conexi_n">No hay conexión</string>
+    <string name="id_recibido">"Id recibido: "</string>
+    <string name="manager_del_equipo">"Manager del equipo: "</string>
+    <string name="pa_s_del_equipo">"País del equipo: "</string>
+    <string name="tama_o_del_equipo">"Tamaño del equipo: "</string>
+    <string name="platillo_principal">"Platillo principal: "</string>
+</resources>
