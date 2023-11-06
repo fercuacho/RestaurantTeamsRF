@@ -14,6 +14,8 @@ data class TeamDetailDto (
     @SerializedName("contry")
     var contry: String? = null,
     @SerializedName("manager")
-    var manager: String? = null
+    var manager: String? = null,
+    @SerializedName("video")
+    var video: String? = null
 
 )

@@ -1,5 +1,6 @@
 package com.example.restaurantteamsrf.ui
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,15 +23,23 @@ import retrofit2.Retrofit
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var mp: MediaPlayer
+
     /*
     private lateinit var repository: TeamRepository
     private lateinit var retrofit: Retrofit*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mp = MediaPlayer.create(this, R.raw.impact)
+        mp.start()
         installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
 
         if(savedInstanceState == null){
             supportFragmentManager.beginTransaction()

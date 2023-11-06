@@ -14,6 +14,8 @@ import com.example.restaurantteamsrf.application.RestaurantTeamsApp
 import com.example.restaurantteamsrf.data.TeamRepository
 import com.example.restaurantteamsrf.data.remote.model.TeamDetailDto
 import com.example.restaurantteamsrf.databinding.FragmentTeamDetailBinding
+import com.example.restaurantteamsrf.model.Video
+import com.example.restaurantteamsrf.ui.adapters.VideosAdapter
 import com.example.restaurantteamsrf.util.Constants
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -33,6 +35,7 @@ class TeamDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val videos = ArrayList<Video>()
         arguments?.let {
             teamId = it.getString(TEAM_ID)
             Log.d(Constants.LOGTAG, getString(R.string.id_recibido) + {teamId})
@@ -52,7 +55,6 @@ class TeamDetailFragment : Fragment() {
                             response: Response<TeamDetailDto>
                         ) {
 
-
                             binding.apply {
                                 pbLoading.visibility = View.GONE
 
@@ -62,6 +64,13 @@ class TeamDetailFragment : Fragment() {
                                 tvCountry.text = getString(R.string.pa_s_del_equipo) + response.body()?.contry
                                 tvLenght.text = getString(R.string.tama_o_del_equipo) +response.body()?.lenght
                                 tvMainDish.text = getString(R.string.platillo_principal) + response.body()?.mainDish
+
+                                val url = response.body()?.video
+                                val video = Video(url.toString(), "","")
+
+                                videos.add(video)
+
+                                vpVideos.adapter = VideosAdapter(videos)
 
                                 Glide.with(requireContext())
                                     .load(response.body()?.logo)
