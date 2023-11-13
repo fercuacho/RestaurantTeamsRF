@@ -16,6 +16,10 @@ data class TeamDetailDto (
     @SerializedName("manager")
     var manager: String? = null,
     @SerializedName("video")
-    var video: String? = null
+    var video: String? = null,
+    @SerializedName("latitud")
+    var latitud: Double? = null,
+    @SerializedName("longitud")
+    var longitud: Double? = null
 
 )
