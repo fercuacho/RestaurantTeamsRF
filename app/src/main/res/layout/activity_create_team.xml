@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".ui.activities.CreateTeam">
+
+    <TextView
+        android:id="@+id/tvBienvenido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido "
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvNombreCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[Nombre de la Cuenta]"
+        android:textSize="18sp"
+        android:layout_toRightOf="@id/tvBienvenido"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Team"
+        android:textSize="18sp"
+        android:layout_below="@id/tvNombreCuenta"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/etNombreTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Team"
+        android:inputType="text"
+        android:layout_below="@id/tvTitulo"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código: [CÓDIGO_GENERADO]"
+        android:layout_below="@id/etNombreTeam"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnCopiarCodigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Copiar Código"
+        android:layout_below="@id/tvCodigo"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnCompartirCodigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Compartir Código"
+        android:layout_below="@id/btnCopiarCodigo"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnCrearTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Team"
+        android:layout_below="@id/btnCompartirCodigo"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

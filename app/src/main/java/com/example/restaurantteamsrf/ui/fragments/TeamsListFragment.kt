@@ -53,7 +53,6 @@ class TeamsListFragment : Fragment() {
         lifecycleScope.launch {
             //val call: Call<List<TeamDto>> = repository.getTeams("cm/games/games_list.php")
             val call: Call<List<TeamDto>> = repository.getTeamsApiary()
-            //val call: Call<List<TeamDto>> = repository.getTeamsApiary()
 
             call.enqueue(object: Callback<List<TeamDto>> {
                 override fun onResponse(

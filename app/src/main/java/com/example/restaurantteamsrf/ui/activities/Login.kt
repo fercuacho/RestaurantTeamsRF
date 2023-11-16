@@ -1,4 +1,4 @@
-package com.example.restaurantteamsrf
+package com.example.restaurantteamsrf.ui.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,11 +11,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import com.example.restaurantteamsrf.R
 import com.example.restaurantteamsrf.databinding.ActivityLoginBinding
-import com.example.restaurantteamsrf.ui.MainActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -92,34 +91,11 @@ class Login : AppCompatActivity() {
         }
 
         binding.btnRegistrarse.setOnClickListener {
-            if(!validaCampos()) return@setOnClickListener
 
-            binding.progressBar.visibility = View.VISIBLE
+            val intent = Intent(this, CreateOrJoin::class.java)
+            startActivity(intent)
+            finish()
 
-            //Registrando al usuario
-            firebaseAuth.createUserWithEmailAndPassword(email, contrasenia).addOnCompleteListener { authResult->
-                if(authResult.isSuccessful){
-                    //Enviar correo para verificación de email
-                    var user_fb = firebaseAuth.currentUser
-                    user_fb?.sendEmailVerification()?.addOnSuccessListener {
-                        Toast.makeText(this, "El correo de verificación ha sido enviado", Toast.LENGTH_SHORT).show()
-                    }?.addOnFailureListener {
-                        Toast.makeText(this, "No se pudo enviar el correo de verificación", Toast.LENGTH_SHORT).show()
-                    }
-
-                    Toast.makeText(this, "Usuario creado", Toast.LENGTH_SHORT).show()
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("psw", contrasenia)
-                    startActivity(intent)
-                    finish()
-
-
-                }else{
-                    binding.progressBar.visibility = View.GONE
-                    manejaErrores(authResult)
-                }
-            }
         }
 
         binding.tvRestablecerPassword.setOnClickListener {

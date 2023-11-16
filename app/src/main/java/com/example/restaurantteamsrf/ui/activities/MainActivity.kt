@@ -1,4 +1,4 @@
-package com.example.restaurantteamsrf.ui
+package com.example.restaurantteamsrf.ui.activities
 
 import android.content.SharedPreferences
 import android.media.MediaPlayer
