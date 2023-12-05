@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/teams"
+        android:id="@+id/teamsFragment"
         android:icon="@drawable/baseline_people_24"
         android:title="Teams" />
     <item
-        android:id="@+id/schedule"
+        android:id="@+id/scheduleFragment"
         android:icon="@drawable/baseline_calendar_month_24"
         android:title="Schedule" />
     <item
-        android:id="@+id/stat"
+        android:id="@+id/statisticsFragment"
         android:icon="@drawable/baseline_analytics_24"
         android:title="Stadistics" />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/baseline_person_24"
         android:title="Profile" />
 </menu>

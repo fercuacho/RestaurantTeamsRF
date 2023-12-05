@@ -5,4 +5,12 @@
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimary">#FF9800</item>
     </style>
+
+    <style name="BottomAppBarStyle" parent="Widget.MaterialComponents.BottomAppBar.Colored">
+        <item name="background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="BottomNavigationStyle">
+        <item name="android:background">@drawable/gradient_bottom_nav</item>
+    </style>
 </resources>

@@ -3,11 +3,9 @@ package com.example.restaurantteamsrf.classes
 import java.io.Serializable
 
 
-class Team(var nameTeam:String? = ""): Serializable {
+class Team(var nameTeam:String? = "") {
     val members = mutableListOf<Person>()
-
-    constructor() : this("")
-
+/*
 
     fun addMember(member: Person) {
         members.add(member)
@@ -24,5 +22,5 @@ class Team(var nameTeam:String? = ""): Serializable {
             //println("nombre del equipo ${nameTeam}")
             println("Miembro del equipo: ${member.getPersonInfo()}")
         }
-    }
+    }*/
 }

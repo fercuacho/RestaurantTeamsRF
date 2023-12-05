@@ -5,25 +5,13 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.lifecycleScope
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.example.restaurantteamsrf.R
-import com.example.restaurantteamsrf.data.TeamRepository
-import com.example.restaurantteamsrf.data.remote.RetrofitHelper
-import com.example.restaurantteamsrf.data.remote.model.TeamDto
 import com.example.restaurantteamsrf.databinding.ActivityMainBinding
 import com.example.restaurantteamsrf.ui.fragments.TeamsListFragment
-import com.example.restaurantteamsrf.util.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
 import java.io.IOException
 import java.security.GeneralSecurityException
 

@@ -15,7 +15,6 @@ import com.example.restaurantteamsrf.data.TeamRepository
 import com.example.restaurantteamsrf.data.remote.model.TeamDetailDto
 import com.example.restaurantteamsrf.databinding.FragmentTeamDetailBinding
 import com.example.restaurantteamsrf.model.Video
-import com.example.restaurantteamsrf.ui.adapters.VideosAdapter
 import com.example.restaurantteamsrf.util.Constants
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -31,7 +30,6 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -94,6 +92,7 @@ class TeamDetailFragment : Fragment(), OnMapReadyCallback, LocationListener {
         super.onCreate(savedInstanceState)
 
         val videos = ArrayList<Video>()
+        /*
         arguments?.let {
             teamId = it.getString(TEAM_ID)
             Log.d(Constants.LOGTAG, getString(R.string.id_recibido) + {teamId})
@@ -171,7 +170,7 @@ class TeamDetailFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
             }
 
-        }
+        }*/
     }
 
     override fun onCreateView(
@@ -215,15 +214,15 @@ class TeamDetailFragment : Fragment(), OnMapReadyCallback, LocationListener {
         binding.map.onDestroy()
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(teamId: String) =
-            TeamDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(TEAM_ID, teamId)
-                }
-            }
-    }
+//    companion object {
+//        @JvmStatic
+//        fun newInstance(teamId: String) =
+//            TeamDetailFragment().apply {
+//                arguments = Bundle().apply {
+//                    putString(TEAM_ID, teamId)
+//                }
+//            }
+//    }
 
     private fun actionPermissionGranted() {
 

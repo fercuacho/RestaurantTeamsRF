@@ -13,7 +13,6 @@ import com.example.restaurantteamsrf.R
 import com.example.restaurantteamsrf.application.RestaurantTeamsApp
 import com.example.restaurantteamsrf.data.TeamRepository
 import com.example.restaurantteamsrf.data.remote.model.TeamDto
-import com.example.restaurantteamsrf.databinding.FragmentTeamDetailBinding
 import com.example.restaurantteamsrf.databinding.FragmentTeamsListBinding
 import com.example.restaurantteamsrf.ui.adapters.TeamsAdapter
 import com.example.restaurantteamsrf.util.Constants
@@ -48,9 +47,9 @@ class TeamsListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        repository = (requireActivity().application as RestaurantTeamsApp).repository
+        //repository = (requireActivity().application as RestaurantTeamsApp).repository
 
-        lifecycleScope.launch {
+        /*lifecycleScope.launch {
             //val call: Call<List<TeamDto>> = repository.getTeams("cm/games/games_list.php")
             val call: Call<List<TeamDto>> = repository.getTeamsApiary()
 
@@ -91,7 +90,7 @@ class TeamsListFragment : Fragment() {
                 }
 
             })
-        }
+        }*/
 
     }
 

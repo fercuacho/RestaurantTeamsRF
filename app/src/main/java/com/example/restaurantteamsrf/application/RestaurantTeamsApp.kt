@@ -9,7 +9,7 @@ class RestaurantTeamsApp: Application() {
         RetrofitHelper().getRetrofit()
     }
 
-    val repository by lazy{
-        TeamRepository(retrofit)
-    }
+//    val repository by lazy{
+//        TeamRepository(retrofit)
+//    }
 }

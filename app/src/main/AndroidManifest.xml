@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".application.RestaurantTeamsApp"
+        android:name=".application.TeamsDBApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,9 +19,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".splashScreen.SplashScreenActivity"
-            android:theme="@style/SplashTheme"
+            android:name=".ui.activities.NewTeamDialog"
             android:exported="false" />
+        <activity
+            android:name=".splashScreen.SplashScreenActivity"
+            android:exported="false"
+            android:theme="@style/SplashTheme" />
         <activity
             android:name=".ui.activities.CreateTeam"
             android:exported="false" />
@@ -41,8 +44,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.activities.Login"
-            android:exported="true"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

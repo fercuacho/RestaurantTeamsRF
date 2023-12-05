@@ -1,19 +1,18 @@
 package com.example.restaurantteamsrf.classes
 
+import android.os.Parcelable
 import java.io.Serializable
 
 
 class Manager(
-    override var name:String,
-    override var lastname: String,
-    override var email:String? = "",
-    override var password:String? = "",
-    override var number:String? = "") : Person(name, lastname, email, password, number),
-    Serializable {
+    var name:String? = "",
+    var lastname: String? = "",
+    var email:String? = "",
+    var password:String? = "",
+    var number:String? = "") /*: Person(name, lastname, email, password, number)*/
+{
 
-    constructor() : this("", "", "", "", "")
-
-
+/*
     fun createTeam(teamName: String? = "", member: Person? = null): Team {
         var team = Team()
         if (teamName != ""){
@@ -27,7 +26,7 @@ class Manager(
         val team = Team(teamName)
         members?.let { team.addMembers(it) }
         return team
-    }
+    }*/
 
 
 

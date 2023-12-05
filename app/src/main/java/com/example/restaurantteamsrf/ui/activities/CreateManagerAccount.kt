@@ -35,8 +35,6 @@ class CreateManagerAccount : AppCompatActivity() {
     private var apellido = ""
     private var numero = ""
 
-    //Manager Objeto
-    private lateinit var manager : Manager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,15 +63,17 @@ class CreateManagerAccount : AppCompatActivity() {
 
                     //Creacion del manager
 
-                     nombre = binding.etNombre.text.toString()
-                     apellido = binding.etNombre.text.toString()
-                     numero = binding.etNombre.text.toString()
-
-                    manager = Manager(nombre,apellido,numero,email,contrasenia)
+                    nombre = binding.etNombre.text.toString()
+                    apellido = binding.etApellido.text.toString()
+                    numero = binding.etNumero.text.toString()
 
 
                     val intent = Intent(this, CreateTeam::class.java)
-                    intent.putExtra("manager", manager)
+                    intent.putExtra("nombre_manager", nombre)
+                    intent.putExtra("apellido_manager", apellido)
+                    intent.putExtra("numero", numero)
+                    intent.putExtra("email", email)
+                    intent.putExtra("contrasenia", contrasenia)
                     startActivity(intent)
                     finish()
 

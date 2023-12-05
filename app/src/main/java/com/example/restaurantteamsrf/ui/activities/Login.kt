@@ -11,16 +11,26 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.lifecycleScope
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.example.restaurantteamsrf.R
+import com.example.restaurantteamsrf.application.TeamsDBApp
+import com.example.restaurantteamsrf.application.TeamsDBApp.Companion.prefs
+import com.example.restaurantteamsrf.data.TeamRepository
+import com.example.restaurantteamsrf.data.db.model.UserEntity
 import com.example.restaurantteamsrf.databinding.ActivityLoginBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.security.GeneralSecurityException
+import java.util.UUID
 
 class Login : AppCompatActivity() {
 
@@ -42,11 +52,19 @@ class Login : AppCompatActivity() {
 
     private lateinit var mp: MediaPlayer
 
+    private lateinit var repository: TeamRepository
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        checkUserLoged()
+
+        repository = (application as TeamsDBApp).repository
+
 
         mp = MediaPlayer.create(this, R.raw.impact)
         mp.start()
@@ -218,16 +236,53 @@ class Login : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(usr, psw).addOnCompleteListener { authResult ->
             if(authResult.isSuccessful){
                 Toast.makeText(this, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+                prefs.saveName(usr)
 
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("psw", psw)
-                startActivity(intent)
-                finish()
+                getIdentifierUser(usr, psw) { identificador ->
+                    prefs.saveIDSesion(identificador)
+                    Toast.makeText(this, usr, Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(this, ActivityMenu::class.java)
+                    intent.putExtra("psw", psw)
+                    startActivity(intent)
+                    finish()
+                }
             }else{
                 binding.progressBar.visibility = View.GONE
                 manejaErrores(authResult)
             }
         }
     }
+
+    private fun checkUserLoged(){
+        if(prefs.getName().isNotEmpty()){
+            startActivity(Intent(this, ActivityMenu::class.java))
+        }
+    }
+
+    private fun getIdentifierUser(usr:String, pass:String,callback: (String) -> Unit): String{
+        var user = UserEntity()
+        var identificador = ""
+
+        lifecycleScope.launch {
+            val currentUser = withContext(Dispatchers.IO) {
+                repository.getCurrentUser(usr, pass)
+            }
+
+//            user = currentUser ?: UserEntity()
+//            identificador = user.identificadorSesion
+
+            val identificador = currentUser?.identificadorSesion ?: ""
+            callback(identificador)
+
+        }
+        //Toast.makeText(this, identificador, Toast.LENGTH_LONG).show()
+
+        return identificador
+    }
+
+//    fun generarIdentificadorUnico(): String {
+//        return UUID.randomUUID().toString()
+//    }
 
 }

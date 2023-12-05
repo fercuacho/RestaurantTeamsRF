@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantteamsrf.databinding.ItemVideoBinding
 import com.example.restaurantteamsrf.model.Video
-import com.example.restaurantteamsrf.ui.fragments.TeamDetailFragment
 
 class VideosAdapter(val videos: ArrayList<Video>): RecyclerView.Adapter<VideosAdapter.ViewHolder>() {
 
