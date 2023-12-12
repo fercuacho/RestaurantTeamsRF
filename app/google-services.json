@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "882585210219",
+    "project_id": "restaurantteams-rf",
+    "storage_bucket": "restaurantteams-rf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882585210219:android:8c888a746951f26626102e",
+        "android_client_info": {
+          "package_name": "com.example.restaurantteamsrf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIM3eDLIbBPm7GBMQdao5xKt6RiMsm50w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
