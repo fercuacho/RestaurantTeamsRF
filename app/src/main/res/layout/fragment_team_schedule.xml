@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/example_4_green"
+    tools:context=".ui.fragments.TeamScheduleFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSelectYourSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecciona el horario para tu equipo"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- Lunes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMonday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Lunes" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchMonday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenMonday"
+                    style="@style/TimePickerSpinner"
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseMonday"
+                    style="@style/TimePickerSpinner"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Martes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Martes" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchTuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenTuesday"
+                    style="@style/TimePickerSpinner"
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseTuesday"
+                    style="@style/TimePickerSpinner"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Miércoles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Miércoles" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchWednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenWednesday"
+                    style="@style/TimePickerSpinner"
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseWednesday"
+                    style="@style/TimePickerSpinner"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Jueves -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvThursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Jueves" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchThursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenThursday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseThursday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Viernes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvFriday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Viernes" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchFriday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenFriday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseFriday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Sábado -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSaturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Sábado" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchSaturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenSaturday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseSaturday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Domingo -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Domingo" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchSunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Cerrado" />
+
+                <TimePicker
+                    android:id="@+id/tpOpenSunday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+                <TimePicker
+                    android:id="@+id/tpCloseSunday"
+                    style="@style/TimePickerSpinner"
+
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSaveSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Guardar Horario"/>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

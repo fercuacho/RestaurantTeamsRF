@@ -21,6 +21,6 @@ class TeamsDBApp: Application() {
     }
 
     val repository by lazy {
-        TeamRepository(database.teamDao(), database.userDao())
+        TeamRepository(database.teamDao(), database.userDao(), database.availabilityDao())
     }
 }

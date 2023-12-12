@@ -13,7 +13,11 @@ import com.example.restaurantteamsrf.databinding.TeamElementBinding
 import com.example.restaurantteamsrf.databinding.TeamElementLayoutBinding
 import com.example.restaurantteamsrf.util.TeamDiffUtil
 
-class TeamWorkAdapter(private var teams:List<TeamEntity>, private val onClickDeleteTeam: (TeamEntity) -> Unit, private val goToDetailTeam: (TeamEntity) -> Unit): RecyclerView.Adapter<TeamWorkAdapter.ViewHolder>(){
+class TeamWorkAdapter(
+    private var teams:List<TeamEntity>,
+    private val onClickDeleteTeam: (TeamEntity) -> Unit,
+    private val goToDetailTeam: (TeamEntity) -> Unit
+): RecyclerView.Adapter<TeamWorkAdapter.ViewHolder>(){
 
     class ViewHolder(private val binding: TeamElementLayoutBinding):RecyclerView.ViewHolder(binding.root) {
         val ivLogoTeam = binding.ivLogoTeam

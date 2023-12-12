@@ -12,7 +12,10 @@ import com.example.restaurantteamsrf.databinding.TeamElementLayoutBinding
 import com.example.restaurantteamsrf.util.MemberDiffUtil
 import com.example.restaurantteamsrf.util.TeamDiffUtil
 
-class MembersAdapter(private var members: List<UserEntity>): RecyclerView.Adapter<MembersAdapter.ViewHolder>(){
+class MembersAdapter(
+    private var members: List<UserEntity>,
+    private val OnMemberClicked: (UserEntity) -> Unit
+): RecyclerView.Adapter<MembersAdapter.ViewHolder>(){
 
     class ViewHolder (private val binding: MemberElementBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -43,6 +46,9 @@ class MembersAdapter(private var members: List<UserEntity>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val member = members[position]
         holder.bind(member)
+        holder.itemView.setOnClickListener{
+            OnMemberClicked(member)
+        }
     }
 
     fun updateList(newlist: List<UserEntity>){

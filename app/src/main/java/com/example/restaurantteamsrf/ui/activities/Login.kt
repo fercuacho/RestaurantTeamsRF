@@ -238,7 +238,7 @@ class Login : AppCompatActivity() {
                 Toast.makeText(this, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
                 prefs.saveName(usr)
 
-                getIdentifierUser(usr, psw) { identificador ->
+                    getIdentifierUser(usr, psw) { identificador ->
                     prefs.saveIDSesion(identificador)
                     Toast.makeText(this, usr, Toast.LENGTH_LONG).show()
 

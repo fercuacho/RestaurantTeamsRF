@@ -13,5 +13,17 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="Theme.CalendarViewExample" parent="Base.Theme.RestaurantTeamsRF" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="TimePickerSpinner" parent="Widget.MaterialComponents.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 
 </resources>

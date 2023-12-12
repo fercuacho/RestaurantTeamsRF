@@ -1,8 +1,10 @@
 package com.example.restaurantteamsrf.data
 
 import android.provider.ContactsContract.CommonDataKinds.Email
+import com.example.restaurantteamsrf.data.db.AvailabilityDao
 import com.example.restaurantteamsrf.data.db.TeamDao
 import com.example.restaurantteamsrf.data.db.UserDao
+import com.example.restaurantteamsrf.data.db.model.AvailabilityEntity
 import com.example.restaurantteamsrf.data.db.model.TeamEntity
 import com.example.restaurantteamsrf.data.db.model.UserEntity
 import com.example.restaurantteamsrf.data.remote.TeamsApi
@@ -11,7 +13,7 @@ import com.example.restaurantteamsrf.data.remote.model.TeamDto
 import retrofit2.Call
 import retrofit2.Retrofit
 
-class TeamRepository (/*private val retrofit: Retrofit,*/ private val teamDao: TeamDao, private val userDao: UserDao) {
+class TeamRepository (/*private val retrofit: Retrofit,*/ private val teamDao: TeamDao, private val userDao: UserDao, private val availabilityDao:AvailabilityDao) {
     /*
     private val teamsApi: TeamsApi = retrofit.create(TeamsApi::class.java)
 
@@ -63,6 +65,22 @@ class TeamRepository (/*private val retrofit: Retrofit,*/ private val teamDao: T
     suspend fun getCurrentUser(email: String, pass: String): UserEntity? = userDao.getCurrentUser(email, pass)
 
     suspend fun getCurrentUser(identificador: String): UserEntity? = userDao.getCurrentUser(identificador)
+
+    ///////////////////////////////////Para Availability Entity////////////////////////////////////////////
+
+    suspend fun insertHorario(availability: AvailabilityEntity){
+        availabilityDao.insertAvailability(availability)
+    }
+
+    suspend fun updateHorario(availability: AvailabilityEntity){
+        availabilityDao.updateAvailability(availability)
+    }
+
+    suspend fun deleteHorario(availability: AvailabilityEntity){
+        availabilityDao.deleteAvailability(availability)
+    }
+
+    suspend fun getHorarioById(id: Long): List<AvailabilityEntity>? = availabilityDao.getAvailabilityList(id)
 
 
 }

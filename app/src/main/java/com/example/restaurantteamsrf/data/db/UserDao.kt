@@ -30,4 +30,5 @@ interface UserDao {
     @Query("SELECT * FROM ${Constants.DATABASE_USERS_TABLE} WHERE user_identifier = :identificador")
     fun getCurrentUser(identificador: String): UserEntity?
 
+
 }

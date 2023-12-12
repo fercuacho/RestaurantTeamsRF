@@ -13,4 +13,7 @@ object Constants{
     const val DATABASE_TEAM_TABLE:String = "team_data_table"
 
     const val DATABASE_USERS_TABLE:String = "users_data_table"
+
+    const val DATABASE_AVAILABILITY_TABLE:String = "availability_data_table"
+
 }

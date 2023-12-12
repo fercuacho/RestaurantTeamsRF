@@ -1,5 +1,6 @@
 package com.example.restaurantteamsrf.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurantteamsrf.R
 import com.example.restaurantteamsrf.application.TeamsDBApp
 import com.example.restaurantteamsrf.application.TeamsDBApp.Companion.prefs
 import com.example.restaurantteamsrf.data.TeamRepository
@@ -16,6 +18,7 @@ import com.example.restaurantteamsrf.data.db.model.UserEntity
 import com.example.restaurantteamsrf.databinding.FragmentTeamElementDetailBinding
 import com.example.restaurantteamsrf.ui.activities.NewMemberDialog
 import com.example.restaurantteamsrf.ui.activities.NewTeamDialog
+import com.example.restaurantteamsrf.ui.activities.SeleccionaDisponibilidadCalendario
 import com.example.restaurantteamsrf.ui.adapters.MembersAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -74,7 +77,9 @@ class TeamElementDetailFragment : Fragment() {
 
                     members = team.members
 
-                    membersAdapter = MembersAdapter(members)
+                    membersAdapter = MembersAdapter(members){ member ->
+                        OnMemberClicked(member,team, id)
+                    }
 
                     binding.rvTeamMembers.apply {
                         layoutManager = LinearLayoutManager(requireContext())
@@ -90,9 +95,27 @@ class TeamElementDetailFragment : Fragment() {
                             })
                         dialog.show(requireActivity().supportFragmentManager, "dialog")
                     }
+
+                    binding.btnEditNameTeam.setOnClickListener {
+
+                        val bundle = Bundle()
+                        bundle.putString("team_id", id)
+
+                        val nuevoFragmento = TeamScheduleFragment()
+                        nuevoFragmento.arguments = bundle
+
+                        requireActivity().supportFragmentManager.beginTransaction()
+                            .replace(R.id.teamsFragmentprueba, nuevoFragmento)
+                            .addToBackStack("teamsElementFragment")
+                            .commit()
+
+                    }
+
                 }
             }
         }
+
+
     }
 
 
@@ -137,5 +160,23 @@ class TeamElementDetailFragment : Fragment() {
             .show()*/
     }
 
+    private fun OnMemberClicked(member: UserEntity, team: TeamEntity, idTeam: String){
+
+        if (team.availability.isNotEmpty()){
+            val idMember = member.identificadorSesion
+
+            val intent = Intent(activity, SeleccionaDisponibilidadCalendario::class.java)
+
+            // Puedes pasar datos extras a la actividad si es necesario.
+            intent.putExtra("ID_MEMBER", idMember)
+            intent.putExtra("ID_TEAM", idTeam)
+
+            // Inicias la actividad.
+            startActivity(intent)
+        }else{
+            message("Seleciona el horario del equipo primero")
+        }
+
+    }
 
 }

@@ -3,11 +3,13 @@ package com.example.restaurantteamsrf.ui.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.example.restaurantteamsrf.application.TeamsDBApp
 import com.example.restaurantteamsrf.application.TeamsDBApp.Companion.prefs
 import com.example.restaurantteamsrf.classes.Manager
 import com.example.restaurantteamsrf.data.TeamRepository
+import com.example.restaurantteamsrf.data.db.model.AvailabilityEntity
 import com.example.restaurantteamsrf.data.db.model.TeamEntity
 import com.example.restaurantteamsrf.data.db.model.UserEntity
 import com.example.restaurantteamsrf.databinding.ActivityCreateTeamBinding
@@ -70,7 +72,9 @@ class CreateTeam : AppCompatActivity() {
                 updateUI()*/
             }catch (e: IOException){
                 e.printStackTrace()
-               //message(getString(R.string.error_al_guardar_el_equipo))
+                Log.e("CreateTeam", "Error al insertar el equipo: ${e.message}")
+
+                //message(getString(R.string.error_al_guardar_el_equipo))
             }
 
             val intent2 = Intent(this, ActivityMenu::class.java)

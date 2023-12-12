@@ -136,7 +136,7 @@ class TeamsFragment : Fragment() {
 
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.teamsFragmentprueba, nuevoFragmento)
-                .addToBackStack(null)
+                .addToBackStack("teamsFragment")
                 .commit()
         }
     }

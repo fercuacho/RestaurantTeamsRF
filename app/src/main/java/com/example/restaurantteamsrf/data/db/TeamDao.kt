@@ -4,10 +4,8 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Transaction
 import androidx.room.Update
 import com.example.restaurantteamsrf.data.db.model.TeamEntity
-import com.example.restaurantteamsrf.data.db.model.relation.TeamWithMembers
 import com.example.restaurantteamsrf.util.Constants.DATABASE_TEAM_TABLE
 
 
@@ -15,7 +13,6 @@ import com.example.restaurantteamsrf.util.Constants.DATABASE_TEAM_TABLE
 interface TeamDao {
 
     //Create
-
     @Insert
     suspend fun insertTeam(team: TeamEntity)
 
@@ -31,6 +28,10 @@ interface TeamDao {
 
     @Query("SELECT * FROM ${DATABASE_TEAM_TABLE} WHERE team_id = :id ")
     suspend fun getTeamById(id: Int): TeamEntity
+
+//    @Transaction
+//    @Query("SELECT * FROM ${DATABASE_TEAM_TABLE} WHERE horario_identifier = :horario_identifier")
+//    suspend fun getAvailabilityByTeamId(horario_identifier: Long): TeamWithAvailability?
 
     /*@Transaction
     @Query("SELECT * FROM ${DATABASE_TEAM_TABLE} WHERE team_id = :teamId")
