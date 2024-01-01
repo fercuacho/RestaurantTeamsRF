@@ -43,34 +43,34 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilGenre"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/manager_name"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="16dp"
-        app:boxCornerRadiusBottomStart="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
-        app:boxCornerRadiusTopStart="16dp"
-        app:startIconDrawable="@drawable/manager">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/tilGenre"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:hint="Work area"-->
+<!--        app:boxBackgroundMode="outline"-->
+<!--        app:boxCornerRadiusBottomEnd="16dp"-->
+<!--        app:boxCornerRadiusBottomStart="16dp"-->
+<!--        app:boxCornerRadiusTopEnd="16dp"-->
+<!--        app:boxCornerRadiusTopStart="16dp"-->
+<!--        app:startIconDrawable="@drawable/work_area">-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietGenre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:maxLines="1">
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/tietGenre"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:imeOptions="actionDone"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLines="1">-->
 
-        </com.google.android.material.textfield.TextInputEditText>
+<!--        </com.google.android.material.textfield.TextInputEditText>-->
 
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <!-- LinearLayout horizontal para poner ImageView, TextView y Spinner en la misma línea -->
     <LinearLayout

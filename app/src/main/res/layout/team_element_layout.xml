@@ -12,10 +12,10 @@ android:padding="4dp">
     android:id="@+id/viewBackground"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:background="#349A91"
+    android:background="#27AAA0"
     android:paddingBottom="10dp"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/tvTeamName" />
+    app:layout_constraintTop_toBottomOf="@+id/guideline7" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ivLogoTeam"
@@ -23,15 +23,17 @@ android:padding="4dp">
         android:layout_height="110dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:scaleType="centerCrop"
+        android:src="@drawable/people"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:riv_corner_radius="10dp" />
+<!--    android:scaleType="centerCrop"-->
 
 
-<TextView
+
+    <TextView
     android:id="@+id/tvTeamName"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
@@ -41,11 +43,10 @@ android:padding="4dp">
     android:includeFontPadding="false"
     android:paddingTop="8dp"
     android:textColor="#CBD5ED"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="@id/guideline6"
+    android:textSize="30sp"
+    app:layout_constraintBottom_toBottomOf="@id/guideline5"
     app:layout_constraintEnd_toEndOf="@id/guideline9"
     app:layout_constraintStart_toEndOf="@+id/guideline8"
-    app:layout_constraintTop_toTopOf="@+id/guideline7"
     tools:text="TEAM NAME" />
 
 
@@ -61,27 +62,27 @@ android:padding="4dp">
     android:text="Numero de miembros"
     android:textColor="#3FE0DD"
     android:textSize="12sp"
-    app:layout_constraintBottom_toBottomOf="@id/guideline5"
-    app:layout_constraintEnd_toEndOf="@id/guideline9"
-    app:layout_constraintStart_toStartOf="@+id/guideline8"
-    app:layout_constraintTop_toTopOf="@id/guideline6" />
-
-<TextView
-    android:id="@+id/tvWorkPlace"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="3dp"
-    android:layout_marginEnd="8dp"
-    android:fontFamily="@font/ubuntu"
-    android:includeFontPadding="false"
-    android:text="Lugar de trabajo"
-    android:textColor="#4A5B82"
-    android:textSize="12sp"
     app:layout_constraintEnd_toEndOf="@id/guideline9"
     app:layout_constraintStart_toStartOf="@+id/guideline8"
     app:layout_constraintBottom_toBottomOf="@id/guideline4"
-    app:layout_constraintTop_toTopOf="@id/guideline5" />
+    app:layout_constraintTop_toTopOf="@id/guideline5"/>
+
+<!--<TextView-->
+<!--    android:id="@+id/tvWorkPlace"-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginStart="8dp"-->
+<!--    android:layout_marginTop="3dp"-->
+<!--    android:layout_marginEnd="8dp"-->
+<!--    android:fontFamily="@font/ubuntu"-->
+<!--    android:includeFontPadding="false"-->
+<!--    android:text="Lugar de trabajo"-->
+<!--    android:textColor="#4A5B82"-->
+<!--    android:textSize="12sp"-->
+<!--    app:layout_constraintEnd_toEndOf="@id/guideline9"-->
+<!--    app:layout_constraintStart_toStartOf="@+id/guideline8"-->
+<!--    app:layout_constraintBottom_toBottomOf="@id/guideline4"-->
+<!--    app:layout_constraintTop_toTopOf="@id/guideline5" />-->
 
     <ImageButton
         android:id="@+id/btnDeleteTeam"

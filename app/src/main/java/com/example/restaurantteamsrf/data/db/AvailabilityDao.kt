@@ -25,8 +25,8 @@ interface AvailabilityDao {
         suspend fun deleteAvailability(availabilityEntity: AvailabilityEntity)
 
         // Read
-        @Query("SELECT * FROM ${Constants.DATABASE_AVAILABILITY_TABLE} WHERE horario_identifier = :horario_identifier")
-        suspend fun getAvailabilityList(horario_identifier: Long): List<AvailabilityEntity>
+        @Query("SELECT * FROM ${Constants.DATABASE_AVAILABILITY_TABLE} WHERE availability_id = :availability_id")
+        suspend fun getAvailability(availability_id: Long): AvailabilityEntity
 
 
     }

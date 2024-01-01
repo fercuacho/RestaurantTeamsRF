@@ -80,7 +80,7 @@ class TeamRepository (/*private val retrofit: Retrofit,*/ private val teamDao: T
         availabilityDao.deleteAvailability(availability)
     }
 
-    suspend fun getHorarioById(id: Long): List<AvailabilityEntity>? = availabilityDao.getAvailabilityList(id)
+    suspend fun getHorarioById(id: Long): AvailabilityEntity = availabilityDao.getAvailability(id)
 
 
 }

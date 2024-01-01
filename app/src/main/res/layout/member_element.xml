@@ -23,12 +23,11 @@
         android:layout_height="110dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@id/guideline8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline7"
         app:riv_corner_radius="10dp"
-        android:src="@drawable/profile"/>
+        android:src="@drawable/profile_yo"/>
 
 
     <TextView
@@ -36,7 +35,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:fontFamily="@font/ubuntu_bold"
         android:includeFontPadding="false"
         android:paddingTop="8dp"
@@ -50,13 +48,14 @@
         android:id="@+id/tvLastnameMember"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="1dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/ubuntu_bold"
         android:includeFontPadding="false"
         android:paddingTop="8dp"
         android:textColor="#CBD5ED"
         android:textSize="15sp"
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvNameMember"
@@ -157,6 +156,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.22" />
+        app:layout_constraintGuide_percent="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

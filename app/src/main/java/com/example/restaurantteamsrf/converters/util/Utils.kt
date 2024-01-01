@@ -1,4 +1,4 @@
-package com.example.restaurantteamsrf.calendar.util
+package com.example.restaurantteamsrf.converters.util
 
 import android.app.Activity
 import android.content.Context

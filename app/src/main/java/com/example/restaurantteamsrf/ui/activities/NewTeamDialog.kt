@@ -81,20 +81,20 @@ class NewTeamDialog (
             }
         })
 
-        binding.tietGenre.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                saveButton?.isEnabled = validateFields()
-            }
-
-        })
+//        binding.tietGenre.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                saveButton?.isEnabled = validateFields()
+//            }
+//
+//        })
     }
 
     //Cuando se destruye el fragment
@@ -113,7 +113,7 @@ class NewTeamDialog (
         val builder = AlertDialog.Builder(requireContext())
 
         return builder.setView(binding.root)
-            .setTitle("Equipo")
+            .setTitle("New team")
             .setPositiveButton(btn1Text, DialogInterface.OnClickListener{ _, _ ->
                 positiveButton()
             })
@@ -123,8 +123,11 @@ class NewTeamDialog (
             .create()
     }
 
-    private fun validateFields() =
-        (binding.tietTitle.text.toString().isNotEmpty() &&
-                binding.tietGenre.text.toString().isNotEmpty())
+//    private fun validateFields() =
+//        (binding.tietTitle.text.toString().isNotEmpty() &&
+//                binding.tietGenre.text.toString().isNotEmpty())
+
+        private fun validateFields() =
+        (binding.tietTitle.text.toString().isNotEmpty())
 
 }

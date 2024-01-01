@@ -112,7 +112,7 @@ class NewMemberDialog (
         val builder = AlertDialog.Builder(requireContext())
 
         return builder.setView(binding.root)
-            .setTitle("Equipo")
+            .setTitle("New member")
             .setPositiveButton(btn1Text, DialogInterface.OnClickListener{ _, _ ->
                 positiveButton()
             })

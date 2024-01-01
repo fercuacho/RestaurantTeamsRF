@@ -50,6 +50,16 @@ class Converters {
     @RequiresApi(Build.VERSION_CODES.O)
     private val formatter: DateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE
 
+    @TypeConverter
+    fun fromDouble(value: Double): Long {
+        return value.toBits()
+    }
+
+    @TypeConverter
+    fun toDouble(value: Long): Double {
+        return Double.fromBits(value)
+    }
+
 //    @RequiresApi(Build.VERSION_CODES.O)
 //    @TypeConverter
 //    fun fromString(value: String?): Set<LocalDate>? {

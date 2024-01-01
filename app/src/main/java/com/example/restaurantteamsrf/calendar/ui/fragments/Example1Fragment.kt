@@ -24,10 +24,11 @@ import com.example.restaurantteamsrf.R
 import com.example.restaurantteamsrf.application.TeamsDBApp
 import com.example.restaurantteamsrf.calendar.addStatusBarColorUpdate
 import com.example.restaurantteamsrf.calendar.setTextColorRes
-import com.example.restaurantteamsrf.calendar.util.displayText
+import com.example.restaurantteamsrf.converters.util.displayText
 import com.example.restaurantteamsrf.data.TeamRepository
 import com.example.restaurantteamsrf.data.db.model.AvailabilityEntity
 import com.example.restaurantteamsrf.data.db.model.UserEntity
+import com.example.restaurantteamsrf.data.db.model.utils.modifyUserProperties
 import com.example.restaurantteamsrf.databinding.Example1CalendarDayBinding
 import com.example.restaurantteamsrf.databinding.Example1FragmentBinding
 import com.example.restaurantteamsrf.ui.fragments.TeamElementDetailFragment
@@ -118,7 +119,6 @@ class Example1Fragment : BaseFragment(R.layout.example_1_fragment), HasToolbar {
             if(selectedDates.isNotEmpty()){
 
                 lifecycleScope.launch {
-                    if (idMember != null) {
                     val resultado = withContext(Dispatchers.IO) {
                         // Operaciones de E/S en el hilo de fondo
                         user = repository.getCurrentUser(idMember)!!
@@ -126,6 +126,12 @@ class Example1Fragment : BaseFragment(R.layout.example_1_fragment), HasToolbar {
                         user.availability = disponibilidad
                         repository.updateUser(user)
 
+                        var team = repository.getTeamById(idTeam.toInt())
+
+                        if (team != null){
+                            team.modifyUserProperties(userId = idMember, newAvailability = disponibilidad)
+                            repository.updateTeam(team)
+                        }
                         // Devolver el valor de disponibilidad
                         disponibilidad
                     }
@@ -137,38 +143,7 @@ class Example1Fragment : BaseFragment(R.layout.example_1_fragment), HasToolbar {
                         // textViewResultado.text = "Disponibilidad: $resultado"
                     }
                 }
-                }
 
-//                lifecycleScope.launch {
-//                    if (identificador != null) {
-//
-//                        withContext(Dispatchers.IO) {
-//                            user = repository.getCurrentUser(identificador)!!
-//                            // Agrega registros de depuración
-//                            Log.d("DEBUG", "Usuario antes de la actualización: $user")
-//
-//                            disponibilidad = selectedDates.toString()
-//                            user.availability = disponibilidad
-//
-//                            Log.d("DEBUG", "Disponibilidad actualizada: $disponibilidad")
-//
-//
-//                            repository.updateUser(user)
-//
-//
-//                            Log.d("DEBUG", "Usuario después de la actualización: $user")
-//
-//                            //Toast.makeText(requireContext(), "dispo "+ disponibilidad, Toast.LENGTH_LONG).show()
-//
-//                        }
-//                    }
-//                }
-                //Toast.makeText(requireContext(),user.availability, Toast.LENGTH_LONG).show()
-                /*val fragmentManager = requireActivity().supportFragmentManager
-                // Puedes ajustar el nombre del Fragmento1 en el back stack según tu implementación
-                val fragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.fragment_container, TeamElementDetailFragment()) // creo que aquí puede estar mal
-                fragmentTransaction.commit()*/
                 activity?.finish()
             } else {
                 Toast.makeText(requireContext(),"Marca al menos una fecha", Toast.LENGTH_LONG).show()
@@ -253,10 +228,12 @@ class Example1Fragment : BaseFragment(R.layout.example_1_fragment), HasToolbar {
         //val availability = availabilityMap[date]
         lifecycleScope.launch {
 
-            //val resultado = withContext(Dispatchers.IO) {
+            //val resultado = withContext(Dispatchers.IO)
+
             val team = repository.getTeamById(idTeam.toInt())
 
-            availabilityMap = convertToAvailabilityMap(team.availability)
+                availabilityMap = convertToAvailabilityMap(team.availability)
+
             // }
             val availability = availabilityMap[date.dayOfWeek]
 

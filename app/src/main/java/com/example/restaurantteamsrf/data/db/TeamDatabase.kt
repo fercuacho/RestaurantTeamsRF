@@ -14,7 +14,7 @@ import com.example.restaurantteamsrf.util.Constants
 
 @Database(
     entities = [TeamEntity::class, UserEntity::class, AvailabilityEntity::class],
-    version = 12, //version de la DB. Importante para las migraciones
+    version = 15, //version de la DB. Importante para las migraciones
     exportSchema = true //por defecto es true
 )
 @TypeConverters(Converters::class) // Agrega la anotación @TypeConverters y la clase Converters

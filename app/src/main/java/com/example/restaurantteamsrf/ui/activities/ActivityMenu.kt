@@ -48,18 +48,18 @@ class ActivityMenu : AppCompatActivity() {
                     true
                 }
 
-                R.id.scheduleFragment -> {
-                    if (condicion !is ScheduleFragment) {
-                        replaceFragment(ScheduleFragment())
-                    }
-                    true
-                }
-                R.id.statisticsFragment -> {
-                    if (condicion !is StatisticsFragment) {
-                        replaceFragment(StatisticsFragment())
-                    }
-                    true
-                }
+//                R.id.scheduleFragment -> {
+//                    if (condicion !is ScheduleFragment) {
+//                        replaceFragment(ScheduleFragment())
+//                    }
+//                    true
+//                }
+//                R.id.statisticsFragment -> {
+//                    if (condicion !is StatisticsFragment) {
+//                        replaceFragment(StatisticsFragment())
+//                    }
+//                    true
+//                }
                 R.id.profileFragment -> {
                     if (condicion !is ProfileFragment) {
                         replaceFragment(ProfileFragment())

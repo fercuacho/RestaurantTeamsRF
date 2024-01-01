@@ -20,6 +20,9 @@ data class AvailabilityEntity(
     @ColumnInfo(name = "schedule")
     val horario: String = "",
 
-    @ColumnInfo(name = "horario_identifier")
-    val horario_identifier: Long = 0
+    @ColumnInfo(name = "min_members")
+    var minMembers: Int = 0,
+
+    @ColumnInfo(name = "shift_length")
+    var shiftLength: Double = 0.0
 )

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantteamsrf.R
 import com.example.restaurantteamsrf.application.TeamsDBApp
 import com.example.restaurantteamsrf.application.TeamsDBApp.Companion.prefs
+import com.example.restaurantteamsrf.calendar.ui.fragments.Example5Fragment
 import com.example.restaurantteamsrf.data.TeamRepository
 import com.example.restaurantteamsrf.data.db.model.TeamEntity
 import com.example.restaurantteamsrf.data.db.model.UserEntity
@@ -78,7 +79,7 @@ class TeamElementDetailFragment : Fragment() {
                     members = team.members
 
                     membersAdapter = MembersAdapter(members){ member ->
-                        OnMemberClicked(member,team, id)
+                        OnMemberClicked(member.identificadorSesion,id)
                     }
 
                     binding.rvTeamMembers.apply {
@@ -96,7 +97,7 @@ class TeamElementDetailFragment : Fragment() {
                         dialog.show(requireActivity().supportFragmentManager, "dialog")
                     }
 
-                    binding.btnEditNameTeam.setOnClickListener {
+                    binding.btnEditOpeningHours.setOnClickListener {
 
                         val bundle = Bundle()
                         bundle.putString("team_id", id)
@@ -108,6 +109,27 @@ class TeamElementDetailFragment : Fragment() {
                             .replace(R.id.teamsFragmentprueba, nuevoFragmento)
                             .addToBackStack("teamsElementFragment")
                             .commit()
+
+                    }
+
+
+                    binding.btnCreateSchedule.setOnClickListener {
+
+                        val bundle = Bundle()
+                        bundle.putString("team_id", id)
+
+                        if(team.availability.isNotEmpty()){
+                            val nuevoFragmento = Example5Fragment()
+                            nuevoFragmento.arguments = bundle
+
+                            requireActivity().supportFragmentManager.beginTransaction()
+                                .replace(R.id.teamsFragmentprueba, nuevoFragmento)
+                                .addToBackStack("teamsElementFragment")
+                                .commit()
+                        }else {
+                            message("Seleciona el horario del equipo primero")
+                        }
+
 
                     }
 
@@ -160,22 +182,20 @@ class TeamElementDetailFragment : Fragment() {
             .show()*/
     }
 
-    private fun OnMemberClicked(member: UserEntity, team: TeamEntity, idTeam: String){
+    private fun OnMemberClicked(idMember: String, idTeam: String){
 
-        if (team.availability.isNotEmpty()){
-            val idMember = member.identificadorSesion
+        val bundle = Bundle()
+        bundle.putString("ID_TEAM", idTeam)
+        bundle.putString("ID_MEMBER", idMember)
 
-            val intent = Intent(activity, SeleccionaDisponibilidadCalendario::class.java)
 
-            // Puedes pasar datos extras a la actividad si es necesario.
-            intent.putExtra("ID_MEMBER", idMember)
-            intent.putExtra("ID_TEAM", idTeam)
+        val nuevoFragmento = MemberSettingsFragment()
+        nuevoFragmento.arguments = bundle
 
-            // Inicias la actividad.
-            startActivity(intent)
-        }else{
-            message("Seleciona el horario del equipo primero")
-        }
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.teamsFragmentprueba, nuevoFragmento)
+            .addToBackStack("teamsElementDetailFragment")
+            .commit()
 
     }
 

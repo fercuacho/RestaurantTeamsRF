@@ -25,4 +25,26 @@
         android:name="com.example.restaurantteamsrf.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+
+        <fragment
+            android:id="@+id/memberSettingsFragment"
+            android:name="com.example.restaurantteamsrf.ui.fragments.MemberSettingsFragment"
+            android:label="fragment_member_settings"
+            tools:layout="@layout/fragment_member_settings">
+            <argument
+                android:name="ID_TEAM"
+                app:argType="string" />
+            <argument
+                android:name="ID_MEMBER"
+                app:argType="string" />
+        </fragment>
+
+    <activity
+        android:id="@+id/seleccionaDisponibilidadCalendario"
+        android:name="com.example.restaurantteamsrf.ui.activities.SeleccionaDisponibilidadCalendario"
+        android:label="activity_selecciona_disponibilidad_calendario"
+        tools:layout="@layout/activity_selecciona_disponibilidad_calendario" />
+
+
 </navigation>

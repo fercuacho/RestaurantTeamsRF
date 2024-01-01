@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#349A91"
+    android:background="#2DA69B"
     android:id="@+id/teamsFragmentprueba"
     tools:context=".ui.fragments.TeamsFragment">
 
