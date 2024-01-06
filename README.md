@@ -1,4 +1,4 @@
-Objective of the app.
+Purpose of the app.
 
 Manifesto Manager is a tool that will help you create schedules for your work group in a quick and easy way. Although it was designed mainly for restaurants, it can really be used for any work group that requires making a schedule with flexible editing options.
 
